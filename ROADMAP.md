@@ -166,18 +166,18 @@ Tasks:
 
 # Phase 6 — Design-System Prototype
 
-- [ ] Load final fonts
-- [ ] Implement color tokens
-- [ ] Implement typography scale
-- [ ] Implement content width/grid
-- [ ] Implement section label
-- [ ] Implement primary button
-- [ ] Implement secondary button
-- [ ] Implement card/surface primitive
-- [ ] Implement media frame
-- [ ] Implement focus treatment
-- [ ] Implement base motion utilities
-- [ ] Implement reduced-motion behavior
+- [x] Load final fonts
+- [x] Implement color tokens
+- [x] Implement typography scale
+- [x] Implement content width/grid
+- [x] Implement section label
+- [x] Implement primary button
+- [x] Implement secondary button
+- [x] Implement card/surface primitive
+- [x] Implement media frame
+- [x] Implement focus treatment
+- [x] Implement base motion utilities
+- [x] Implement reduced-motion behavior
 - [ ] Test at desktop width
 - [ ] Test at tablet width
 - [ ] Test at mobile width
