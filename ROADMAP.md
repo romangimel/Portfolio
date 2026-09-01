@@ -282,20 +282,20 @@ Exit criteria: Header ownership matches the target site architecture without col
 
 Implement the chosen direction in `DESIGN_SYSTEM.md` as a separate reviewable milestone.
 
-- [ ] Implement sticky Header behavior that remains visually integrated with the site
-- [ ] Replace squeezed narrow navigation with RG identity plus an accessible teal hamburger button
-- [ ] Implement the compact right-aligned mobile popover and distinct `LET'S CONNECT ↗` CTA area
-- [ ] Support toggle-close, outside-click close, and `Escape` close with focus returned to the toggle
-- [ ] Close after choosing a real destination
-- [ ] Clear stale open state when returning to desktop layout
-- [ ] Preserve visible focus, logical keyboard order, and approximately 44 × 44px toggle target
-- [ ] Do not invent functional destinations
+- [x] Implement sticky Header behavior that remains visually integrated with the site
+- [x] Replace squeezed narrow navigation with RG identity plus an accessible teal hamburger button
+- [x] Implement the compact right-aligned mobile popover and distinct `LET'S CONNECT ↗` CTA area
+- [x] Support toggle-close, outside-click close, and `Escape` close with focus returned to the toggle
+- [x] Close after choosing a real destination
+- [x] Clear stale open state when returning to desktop layout
+- [x] Preserve visible focus, logical keyboard order, and approximately 44 × 44px toggle target
+- [x] Do not invent functional destinations
 
 Exit criteria: desktop and mobile Header behavior matches the chosen design direction without becoming a fullscreen menu, side drawer, or second navigation row.
 
 ---
 
-# Phase 7D — Header/Hero Responsive Re-verification
+# Phase 7D — Header/Hero Responsive Re-verification — Current
 
 - [ ] Re-verify Header/Hero composition at 768px after `SiteHeader` extraction
 - [ ] Re-verify Header/Hero composition around 430px after mobile navigation implementation

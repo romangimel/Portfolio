@@ -6,7 +6,7 @@
 
 This document records the approved visual direction and the design-system foundation implemented in `src/index.css` and the shared layout/UI primitives.
 
-The current Hero body is an approved visual surface. Its composition, typography, portrait artwork, copy, responsive behavior, and decorative system should not be reinterpreted outside an explicitly scoped Hero task. The desktop Header/Navbar presentation is also approved. The narrow/mobile Header design is chosen below but not implemented or final in the current source. Tokens may still be refined when browser evidence identifies a concrete problem, but should not drift through unrelated work.
+The current Hero body is an approved visual surface. Its composition, typography, portrait artwork, copy, responsive behavior, and decorative system should not be reinterpreted outside an explicitly scoped Hero task. The desktop and narrow/mobile Header directions are also approved. Tokens may still be refined when browser evidence identifies a concrete problem, but should not drift through unrelated work.
 
 The current visual north star is the approved dark portfolio mock featuring:
 
@@ -266,7 +266,7 @@ App / page shell
     └── Hero
 ```
 
-The Header should support sticky, site-wide behavior without being owned by the Hero. The current code still places `<header>` and `<nav>` inside `HomeHero`; that is current implementation, not target ownership. See `ROADMAP.md` for implementation timing.
+The Header should support sticky, site-wide behavior without being owned by the Hero. `ROADMAP.md` owns implementation status and sequencing.
 
 ### Structure
 
@@ -338,7 +338,7 @@ Avoid blocking intro, forced animation sequence, extreme parallax, and custom cu
 
 ## Navigation
 
-`SiteHeader` is a site-level component in the target architecture, independent from the Hero section.
+`SiteHeader` is a site-level component, independent from the Hero section.
 
 ### Desktop Header — approved
 
@@ -356,14 +356,16 @@ Only real destinations should become interactive. The site-level Header may late
 
 On scroll:
 
+- preserve the approved Header height, horizontal alignment, identity, navigation, CTA, typography, spacing, and overall geometry
+- remain transparent while the page is at the top
 - subtle translucent charcoal background
 - modest blur
 - thin lower border
-- preserve compact height
+- transition the surface treatment subtly without shrinking or compressing the Header
 
-Avoid giant floating pill navigation.
+Do not turn the Header into a floating pill, add a large shadow or glow, or introduce a separate compact scrolled state.
 
-### Narrow/mobile Header — chosen direction, not implemented
+### Narrow/mobile Header — approved direction
 
 The current source squeezes desktop navigation into the narrow Header. That behavior is not approved and must not be preserved as a constraint.
 
@@ -384,13 +386,19 @@ Open-menu composition:
 
 ```text
 Work
+──────── coral/orange divider
 About
+──────── coral/orange divider
 Tech
 ──────── coral/orange divider
 LET'S CONNECT ↗
 ```
 
-- Use a compact right-aligned popover beneath the toggle, approximately `14rem / 224px` wide as a starting point.
+- Use a compact right-aligned popover beneath the toggle.
+- Make the popover as narrow as practical with content-driven sizing. It should fit `LET'S CONNECT ↗`, reasonable horizontal padding, and comfortable touch targets without awkward wrapping at `375px`.
+- Do not use an arbitrary large fixed width for visual presence; the panel should visually hug its content.
+- Center the `Work`, `About`, and `Tech` labels, and center the CTA text inside its outlined control.
+- Place a thin, restrained coral/orange divider between every menu item: between `Work` and `About`, between `About` and `Tech`, and between `Tech` and the CTA area.
 - Use a charcoal/near-black surface, restrained portfolio border, modest radius, and compact spacing.
 - Keep `LET'S CONNECT ↗` in a distinct outlined teal CTA area; it must not look like another normal menu item.
 - Do not use a fullscreen menu, side drawer, second navigation row, glassmorphism-heavy surface, generic oversized mobile menu, or giant shadow.
@@ -405,7 +413,7 @@ Required interaction direction:
 - Clear stale open state when returning to the desktop layout.
 - Preserve logical keyboard order, visible focus, and correct toggle relationships such as `aria-expanded` and `aria-controls`.
 
-This section defines target design and interaction behavior only. It does not claim that the mobile menu, sticky Header, or `SiteHeader` architecture is implemented. `ROADMAP.md` owns implementation status and sequencing.
+This section defines the approved design and interaction behavior. `ROADMAP.md` owns implementation status and sequencing.
 
 ---
 
