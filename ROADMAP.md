@@ -278,7 +278,7 @@ Exit criteria: Header ownership matches the target site architecture without col
 
 ---
 
-# Phase 7C — Sticky Header and Mobile Navigation — Current
+# Phase 7C — Sticky Header and Mobile Navigation
 
 Implement the chosen direction in `DESIGN_SYSTEM.md` as a separate reviewable milestone.
 
@@ -295,21 +295,21 @@ Exit criteria: desktop and mobile Header behavior matches the chosen design dire
 
 ---
 
-# Phase 7D — Header/Hero Responsive Re-verification — Current
+# Phase 7D — Header/Hero Responsive Re-verification
 
-- [ ] Re-verify Header/Hero composition at 768px after `SiteHeader` extraction
-- [ ] Re-verify Header/Hero composition around 430px after mobile navigation implementation
-- [ ] Re-verify Header/Hero composition around 375px after mobile navigation implementation
-- [ ] Verify hamburger open/close, outside click, `Escape`, keyboard/focus behavior, and real-destination close behavior
-- [ ] Extend the Playwright harness with focused mobile Header behavior coverage: toggle, outside click, Escape/focus restoration, real-destination close, stale-state reset, and horizontal overflow
-- [ ] Verify no obvious horizontal overflow or stale desktop/mobile menu state
-- [ ] Confirm approved Hero-body baselines remain stable; update baselines only for reviewed intentional changes
+- [x] Re-verify Header/Hero composition at 768px after `SiteHeader` extraction
+- [x] Re-verify Header/Hero composition around 430px after mobile navigation implementation
+- [x] Re-verify Header/Hero composition around 375px after mobile navigation implementation
+- [x] Verify hamburger open/close, outside click, `Escape`, keyboard/focus behavior, and real-destination close behavior
+- [x] Extend the Playwright harness with focused mobile Header behavior coverage: toggle, outside click, Escape/focus restoration, real-destination close, stale-state reset, and horizontal overflow
+- [x] Verify no obvious horizontal overflow or stale desktop/mobile menu state
+- [x] Confirm approved Hero-body baselines remain stable; update baselines only for reviewed intentional changes
 
 Exit criteria: the architecture and navigation changes are re-verified at affected widths. This is focused development verification, not the final full-site responsive QA in Phase 12.
 
 ---
 
-# Phase 8 — Homepage Work Section
+# Phase 8 — Homepage Work Section — Current
 
 - [ ] Implement Selected Work section
 - [ ] Implement OrionLabs featured composition

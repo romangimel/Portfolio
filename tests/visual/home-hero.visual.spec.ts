@@ -69,8 +69,8 @@ for (const viewport of [
       throw new Error('The approved Hero body is not visible for capture.')
     }
 
-    // The clip begins after the unfinished narrow Header and spans the full
-    // viewport width so the approved edge-to-edge artwork bleed is protected.
+    // Starting after the mobile Header keeps this baseline focused on the
+    // approved edge-to-edge Hero artwork and body composition.
     await expect(page).toHaveScreenshot(
       `home-hero-body-${viewport.width}x${viewport.height}.png`,
       {
