@@ -145,14 +145,14 @@ Recommended starting direction:
 
 Tasks:
 
-- [ ] Create GitHub repository
-- [ ] Add planning documentation
-- [ ] Create project-level development instructions
-- [ ] Choose final frontend stack
-- [ ] Initialize application
-- [ ] Configure TypeScript
-- [ ] Configure linting
-- [ ] Configure testing
+- [x] Create GitHub repository
+- [x] Add planning documentation
+- [x] Create project-level development instructions
+- [x] Choose final frontend stack
+- [x] Initialize application
+- [x] Configure TypeScript
+- [x] Configure linting
+- [x] Configure testing
 - [ ] Configure aliases only if needed
 - [ ] Establish route strategy
 - [ ] Establish content/data structure
@@ -160,7 +160,7 @@ Tasks:
 - [ ] Establish metadata strategy
 - [ ] Establish environment strategy if any
 - [ ] Add `.gitignore`
-- [ ] Add initial README
+- [x] Add initial README
 
 ---
 
@@ -192,7 +192,7 @@ Exit criteria: the system should already feel recognizably like the approved art
 - [x] Implement navbar
 - [x] Implement Hero layout
 - [x] Integrate portrait
-- [ ] Produce final portrait/art treatment
+- [x] Produce final portrait/art treatment
 - [x] Ensure portrait remains natural
 - [x] Implement technical decorative layer
 - [x] Implement Hero CTA hierarchy
@@ -200,7 +200,7 @@ Exit criteria: the system should already feel recognizably like the approved art
 - [x] Implement scroll cue if retained
 - [ ] Implement Hero motion
 - [x] Implement reduced-motion fallback
-- [ ] Optimize Hero asset delivery
+- [x] Optimize Hero asset delivery
 - [x] Verify no duplicate downloads
 - [x] Verify mobile composition
 - [x] Verify responsive type scale

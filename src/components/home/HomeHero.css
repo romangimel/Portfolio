@@ -391,7 +391,7 @@
   position: absolute;
   z-index: 7;
   right: 4rem;
-  bottom: 0.30rem;
+  bottom: 1.25rem;
   display: flex;
   color: rgba(202, 206, 203, 0.82);
   font-family: var(--font-mono);
