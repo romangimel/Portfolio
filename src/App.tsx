@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router'
 import { HomeHero } from './components/home/HomeHero'
 import { SiteContainer } from './components/layout/SiteContainer'
+import { SiteHeader } from './components/layout/SiteHeader'
 import { Section } from './components/layout/Section'
 import { ActionLink } from './components/ui/Action'
 import { SectionLabel } from './components/ui/SectionLabel'
@@ -53,12 +54,23 @@ function RoutePlaceholder({
   )
 }
 
+function HomePage() {
+  return (
+    <div className="home-page">
+      <SiteHeader />
+      <main>
+        <HomeHero />
+      </main>
+    </div>
+  )
+}
+
 function App() {
   return (
     <Routes>
       <Route
         path="/"
-        element={<HomeHero />}
+        element={<HomePage />}
       />
       <Route
         path="/projects/orionlabs"

@@ -265,20 +265,20 @@ Exit criteria: a small repeatable browser check can detect obvious collateral mo
 
 ---
 
-# Phase 7B — Site Header Extraction — Current
+# Phase 7B — Site Header Extraction
 
-- [ ] Extract Header/Navbar markup from `HomeHero`
-- [ ] Create a distinct site-level `SiteHeader` component
-- [ ] Render the Header as a sibling of page `<main>` content
-- [ ] Preserve the approved Hero body and desktop Header presentation during extraction
-- [ ] Do not preserve the current cramped narrow/mobile navigation as a design constraint
-- [ ] Keep Header navigation usable independently of the Hero
+- [x] Extract Header/Navbar markup from `HomeHero`
+- [x] Create a distinct site-level `SiteHeader` component
+- [x] Render the Header as a sibling of page `<main>` content
+- [x] Preserve the approved Hero body and desktop Header presentation during extraction
+- [x] Do not preserve the current cramped narrow/mobile navigation as a design constraint
+- [x] Keep Header navigation usable independently of the Hero
 
 Exit criteria: Header ownership matches the target site architecture without collateral changes to the approved Hero body or desktop Header presentation.
 
 ---
 
-# Phase 7C — Sticky Header and Mobile Navigation
+# Phase 7C — Sticky Header and Mobile Navigation — Current
 
 Implement the chosen direction in `DESIGN_SYSTEM.md` as a separate reviewable milestone.
 

@@ -1,51 +1,12 @@
-import { Link } from 'react-router'
 import heroArtwork from '../../../design/references/hero-artwork.png'
 import { SiteContainer } from '../layout/SiteContainer'
 import { ActionLink } from '../ui/Action'
 import './HomeHero.css'
 
-/**
- * The real homepage opening composition.
- *
- * Contact and résumé actions remain visually neutral until their real
- * destinations are confirmed, rather than shipping guessed links.
- */
+/** Renders the approved homepage Hero body without site-level navigation. */
 export function HomeHero() {
   return (
-    <main className="home-page">
       <section className="hero" aria-labelledby="hero-title">
-        <header className="site-header">
-          <SiteContainer className="site-header__inner">
-            <Link className="site-identity" to="/" aria-label="Roman Gudovich home">
-              <span className="site-identity__mark" aria-hidden="true">
-                RG
-              </span>
-              <span className="site-identity__name">Roman Gudovich</span>
-            </Link>
-
-            <nav className="site-nav" aria-label="Primary navigation">
-              <ActionLink
-                className="site-nav__link site-nav__link--active"
-                to="#work"
-                variant="tertiary"
-              >
-                Work
-              </ActionLink>
-
-              <span className="site-nav__placeholder" aria-disabled="true">
-                About
-              </span>
-              <span className="site-nav__placeholder" aria-disabled="true">
-                Tech
-              </span>
-            </nav>
-
-            <span className="site-header__connect" aria-hidden="true">
-              Let’s connect <span>↗</span>
-            </span>
-          </SiteContainer>
-        </header>
-
         <div className="hero__technical-rail" aria-hidden="true">
           <span className="hero__rail-line" />
           <span className="hero__rail-dot" />
@@ -159,7 +120,5 @@ export function HomeHero() {
           <span>↓</span>
         </div>
       </section>
-
-    </main>
   )
 }
