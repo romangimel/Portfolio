@@ -245,19 +245,19 @@ The Hero body is an approved visual surface. This initial review is not final re
 
 ---
 
-# Phase 7A — Minimal Browser Regression Foundation — Current
+# Phase 7A — Minimal Browser Regression Foundation
 
 Purpose: catch collateral visual regressions that lint and build checks cannot detect before more approved surfaces are added.
 
 Preferred tool direction: Playwright, unless repository inspection at implementation time reveals a concrete reason to choose another lightweight browser harness.
 
-- [ ] Confirm the smallest suitable browser-regression setup
-- [ ] Add one desktop baseline covering the approved desktop Header + Hero composition together, while keeping the 430px and 375px baselines scoped to the Hero body only
-- [ ] Add an approved Hero-body visual baseline around 430px
-- [ ] Add an approved Hero-body visual baseline around 375px
-- [ ] Scope narrow baselines to the approved Hero body so the unfinished current mobile Header is not frozen
-- [ ] Keep the harness focused on stable approved surfaces rather than broad end-to-end coverage
-- [ ] Document the focused command and intentional baseline-update workflow
+- [x] Confirm the smallest suitable browser-regression setup
+- [x] Add one desktop baseline covering the approved desktop Header + Hero composition together, while keeping the 430px and 375px baselines scoped to the Hero body only
+- [x] Add an approved Hero-body visual baseline around 430px
+- [x] Add an approved Hero-body visual baseline around 375px
+- [x] Scope narrow baselines to the approved Hero body so the unfinished current mobile Header is not frozen
+- [x] Keep the harness focused on stable approved surfaces rather than broad end-to-end coverage
+- [x] Document the focused command and intentional baseline-update workflow
 
 After the mobile Header is implemented, extend the harness with focused coverage for toggle behavior, outside click, `Escape`, keyboard/focus behavior, and obvious horizontal overflow. Do not turn this milestone into a comprehensive testing project.
 
@@ -265,7 +265,7 @@ Exit criteria: a small repeatable browser check can detect obvious collateral mo
 
 ---
 
-# Phase 7B — Site Header Extraction
+# Phase 7B — Site Header Extraction — Current
 
 - [ ] Extract Header/Navbar markup from `HomeHero`
 - [ ] Create a distinct site-level `SiteHeader` component
