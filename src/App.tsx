@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router'
+import { HomeHero } from './components/home/HomeHero'
 import { SiteContainer } from './components/layout/SiteContainer'
 import { Section } from './components/layout/Section'
 import { ActionLink } from './components/ui/Action'
@@ -57,16 +58,7 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={
-          <RoutePlaceholder
-            eyebrow="Portfolio / Home route"
-            title="Roman Gudovich"
-            description="Full-stack developer focused on AI-powered products. The homepage content is intentionally deferred while its design-system foundation is established."
-            actionLabel="Open OrionLabs route"
-            actionTo="/projects/orionlabs"
-            actionVariant="primary"
-          />
-        }
+        element={<HomeHero />}
       />
       <Route
         path="/projects/orionlabs"

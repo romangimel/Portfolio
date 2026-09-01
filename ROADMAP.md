@@ -76,10 +76,10 @@ Initial routes:
 - [x] Define motion principles
 - [x] Define project-page color adaptation
 - [x] Define mobile design philosophy
-- [ ] Prototype design system in browser and adjust tokens
-- [ ] Lock final typography after browser rendering
-- [ ] Lock final color values after browser rendering
-- [ ] Lock final spacing/type scale after responsive prototype
+- [x] Prototype design system in browser and adjust tokens
+- [x] Lock final typography after browser rendering
+- [x] Lock final color values after browser rendering
+- [x] Lock final spacing/type scale after responsive prototype
 
 Reference: `DESIGN_SYSTEM.md`
 
@@ -189,21 +189,21 @@ Exit criteria: the system should already feel recognizably like the approved art
 
 # Phase 7 — Homepage Hero
 
-- [ ] Implement navbar
-- [ ] Implement Hero layout
-- [ ] Integrate portrait
+- [x] Implement navbar
+- [x] Implement Hero layout
+- [x] Integrate portrait
 - [ ] Produce final portrait/art treatment
-- [ ] Ensure portrait remains natural
-- [ ] Implement technical decorative layer
-- [ ] Implement Hero CTA hierarchy
-- [ ] Implement desktop social/technical rail if retained
-- [ ] Implement scroll cue if retained
+- [x] Ensure portrait remains natural
+- [x] Implement technical decorative layer
+- [x] Implement Hero CTA hierarchy
+- [x] Implement desktop social/technical rail if retained
+- [x] Implement scroll cue if retained
 - [ ] Implement Hero motion
-- [ ] Implement reduced-motion fallback
+- [x] Implement reduced-motion fallback
 - [ ] Optimize Hero asset delivery
-- [ ] Verify no duplicate downloads
-- [ ] Verify mobile composition
-- [ ] Verify responsive type scale
+- [x] Verify no duplicate downloads
+- [x] Verify mobile composition
+- [x] Verify responsive type scale
 
 ---
 
