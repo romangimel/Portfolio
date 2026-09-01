@@ -6,15 +6,36 @@ This file defines the working rules for AI-assisted development in this reposito
 
 The portfolio is a recruiter-facing, design-forward personal site for **Roman Gudovich**, a full-stack developer focused on AI-powered products.
 
-Before making meaningful changes, read the relevant project documentation:
+## Source of Truth
 
-- `PROJECT.md`
-- `DESIGN_SYSTEM.md`
-- `ROADMAP.md`
-- `CONTENT_COPY_PLAN.md`
-- `ORIONLABS_CASE_STUDY.md`
+Use the repository documentation by subject:
 
-Treat those files as the source of truth for product direction, visual language, content hierarchy, scope, and current phase.
+- `AGENTS.md` — AI-assisted development rules and scope boundaries
+- `PROJECT.md` — product direction, positioning, audience, and product scope
+- `DESIGN_SYSTEM.md` — visual language, tokens, responsive principles, and approved visual direction
+- `ROADMAP.md` — evidence-backed implementation status, current phase, and sequencing
+- `CONTENT_COPY_PLAN.md` — copy hierarchy and lock/draft status
+- `ORIONLABS_CASE_STUDY.md` — planned case-study narrative, evidence, and visual strategy
+- `README.md` — concise public repository overview
+
+Before meaningful changes, read only the documents and implementation files relevant to the task. Documentation governs intent, but implementation status must be verified in the current source. If a status statement conflicts with the code, inspect the relevant implementation before making assumptions and reconcile the documentation only when the task explicitly includes documentation work.
+
+---
+
+## Current Project State
+
+The repository is an active React + TypeScript + Vite application, not a planning-only project.
+
+Implemented today:
+
+- Tailwind CSS foundation, local project typography, responsive tokens, focus treatment, and reduced-motion rules
+- reusable layout/UI primitives for containers, sections, actions, labels, surfaces, and media
+- React Router composition for `/` and `/projects/orionlabs`
+- approved, art-directed homepage Hero body with portrait artwork, desktop technical/social rails, code annotation, CTA hierarchy, and responsive layouts
+- an approved desktop Header/Navbar presentation; narrow/mobile Header behavior is not final
+- a minimal placeholder at `/projects/orionlabs`; the full case study is not implemented
+
+The rest of the homepage is not yet implemented. Consult `ROADMAP.md` for the current implementation phase, detailed sequencing, and outstanding verification work.
 
 ---
 
@@ -75,9 +96,7 @@ Preserve the approved direction:
 - no generic SaaS-dashboard look
 - no cyberpunk/hacker-terminal clichés
 
-The Hero concept is especially important.
-
-Its structure is considered largely locked:
+The implemented Hero body is an approved visual surface. Its structure is considered locked:
 
 - large editorial title on the left
 - Roman's portrait integrated on the right
@@ -86,7 +105,33 @@ Its structure is considered largely locked:
 - thin technical linework and nodes
 - clear CTA hierarchy
 
-Do not redesign the Hero from scratch unless explicitly requested.
+Do not change the Hero body's layout, typography, artwork, copy, responsive behavior, or decorative system unless the task explicitly targets that surface. The desktop Header/Navbar visual presentation is also approved.
+
+The narrow/mobile Header is not approved in its current source form. Its hamburger/popover direction is defined in `DESIGN_SYSTEM.md`, but the visual implementation, interaction behavior, sticky behavior, and `SiteHeader` extraction remain unfinished. Do not preserve cramped current mobile navigation merely because it exists. Future sections become subject to approved-surface protection once they are marked approved.
+
+---
+
+## Site Architecture
+
+The Header/Navbar is a site-level component. The Hero is a page section and must not conceptually own site-wide navigation.
+
+Target structure:
+
+```text
+App / page shell
+├── SiteHeader
+└── main
+    ├── Hero
+    ├── Selected Work
+    ├── Proof
+    ├── How I Build
+    ├── About
+    ├── Tools
+    ├── Contact
+    └── Footer
+```
+
+Current implementation: `HomeHero.tsx` still renders the `<main>`, `<header>`, and `<nav>` together. This does not change the target architecture. Consult `ROADMAP.md` for when the extraction and sticky/mobile Header work occur.
 
 ---
 
@@ -122,7 +167,7 @@ Do not guess about exact current implementation when inspection is possible.
 
 ## Scope Discipline
 
-Avoid unrelated refactors.
+Prefer the smallest coherent diff that fully solves the requested task. Inspect only the source-of-truth documents and implementation files relevant to that task.
 
 Do not:
 
@@ -135,8 +180,35 @@ Do not:
 - introduce speculative infrastructure
 - add empty future-facing routes
 - add dependencies without a concrete reason
+- clean up adjacent code unless requested
+- alter an approved visual surface as collateral work
+- refactor for style or preference unrelated to the request
+- change approved copy unless explicitly requested
+- update `ROADMAP.md`, `README.md`, or other documentation as an automatic side effect of implementation work
 
-Prefer the smallest coherent change that fully solves the requested task.
+Documentation changes should be explicitly in scope. When they are, update only claims affected by verified repository evidence.
+
+### Documentation maintenance
+
+When an implementation milestone completes:
+
+- update detailed completion status, outstanding verification, and sequencing only in `ROADMAP.md`
+- update another document only when the milestone changes a fact owned by that document's subject
+- do not mechanically copy roadmap status across the documentation set
+- do not allow multiple documents to independently define what happens next
+
+---
+
+## Visual Work
+
+Codex may implement a complete section when that section is the explicit task. Once a visual surface is close to or marked approved, later adjustments must be surgical.
+
+- Do not reinterpret an approved reference during unrelated work.
+- Preserve approved geometry, artwork, copy, and interaction direction.
+- Preserve the approved Hero body and desktop Header presentation, but use the chosen mobile-navigation direction instead of treating the current narrow Header as locked.
+- Review visual changes at desktop, tablet, 430px mobile, and 375px mobile as applicable.
+- Check for horizontal overflow, usable touch targets, keyboard focus, and reduced-motion behavior.
+- Treat build and lint results as structural evidence only; they do not prove that rendered output is visually unchanged.
 
 ---
 
@@ -362,12 +434,8 @@ When asked for a Codex prompt, provide **one complete ready-to-paste prompt** ra
 
 ---
 
-## Current Phase
+## Implementation Status Ownership
 
-The repository begins in planning.
+`ROADMAP.md` is the only detailed source of truth for the current implementation phase, completed versus incomplete work, immediate sequencing, the next engineering task, the next major product phase, and outstanding verification.
 
-Follow `ROADMAP.md` in order unless there is a clear reason not to.
-
-The next implementation goal after repository setup is the **design-system prototype**, not the full homepage.
-
-Do not jump ahead into unrelated sections before the foundation is stable.
+Do not infer sequencing from this file or copy roadmap checklists here. Before beginning implementation, consult the current roadmap and then inspect the relevant source.

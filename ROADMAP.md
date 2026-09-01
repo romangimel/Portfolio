@@ -2,11 +2,45 @@
 
 ## Guiding Rule
 
-This portfolio should be planned before it is coded.
+This portfolio is planned and implemented in deliberate, evidence-backed phases.
 
-Avoid recreating the early OrionLabs workflow of discovering core product architecture while already implementing it.
+Avoid discovering or changing core product architecture casually while implementing an unrelated surface.
 
 Each phase should finish with a clear source of truth before the next begins.
+
+## Status Ownership
+
+This file is the only detailed source of truth for current implementation status, completed versus incomplete work, immediate sequencing, the next engineering task, the next major product phase, and outstanding verification.
+
+Other documents own their subject areas but should not independently define what happens next.
+
+## Current State and Near-Term Sequence
+
+Implemented and approved:
+
+- React + TypeScript + Vite application foundation
+- Tailwind design tokens, local typography, and reusable layout/UI primitives
+- React Router routes for `/` and `/projects/orionlabs`
+- homepage Hero body visual direction and responsive composition
+- desktop Header/Navbar visual presentation
+
+Not final or not implemented:
+
+- `SiteHeader` extraction and site-level ownership
+- sticky Header behavior
+- narrow/mobile hamburger and popover behavior defined in `DESIGN_SYSTEM.md`
+- most homepage sections and the full OrionLabs case study; `/projects/orionlabs` remains a placeholder
+- final responsive, accessibility, performance, and release QA
+
+Near-term sequence:
+
+A. Establish a minimal browser regression baseline for the approved Hero body.
+B. Extract the Header/Navbar from `HomeHero` into a distinct site-level `SiteHeader`.
+C. Implement sticky desktop behavior and the chosen narrow/mobile hamburger/popover direction.
+D. Re-verify Header/Hero composition and interaction at the affected responsive widths.
+E. Implement Selected Work / the OrionLabs featured project.
+
+These are separate reviewable milestones, not one combined implementation task. Hero motion and responsive image/format optimization remain separately tracked work.
 
 ---
 
@@ -41,7 +75,7 @@ Each phase should finish with a clear source of truth before the next begins.
 Current homepage structure:
 
 ```text
-Navbar
+Header / navigation
 Hero
 Selected Work / OrionLabs
 Proof strip
@@ -77,9 +111,9 @@ Initial routes:
 - [x] Define project-page color adaptation
 - [x] Define mobile design philosophy
 - [x] Prototype design system in browser and adjust tokens
-- [x] Lock final typography after browser rendering
-- [x] Lock final color values after browser rendering
-- [x] Lock final spacing/type scale after responsive prototype
+- [x] Establish typography choices in browser implementation
+- [x] Establish implemented color values
+- [ ] Finalize spacing/type scale after complete responsive review
 
 Reference: `DESIGN_SYSTEM.md`
 
@@ -87,8 +121,9 @@ Reference: `DESIGN_SYSTEM.md`
 
 # Phase 3 — Content and Copy
 
-- [ ] Finalize Hero microcopy
-- [ ] Finalize navigation labels
+- [x] Finalize and lock Hero title and supporting positioning copy
+- [ ] Finalize unresolved Hero action destinations and supporting microcopy
+- [ ] Finalize site-wide navigation destinations and labels beyond the current Hero presentation
 - [ ] Finalize OrionLabs featured-project copy
 - [ ] Finalize proof-strip language
 - [ ] Finalize How I Build copy
@@ -133,15 +168,19 @@ Reference: `ORIONLABS_CASE_STUDY.md`
 
 # Phase 5 — Repository and Technical Foundation
 
-Evaluate the simplest stack that supports strong visual composition, responsive layout, motion, case-study routes, SEO/metadata, performance, and maintainability.
+The implemented stack supports strong visual composition, responsive layout, case-study routes, performance, and maintainability without speculative infrastructure.
 
-Recommended starting direction:
+Implemented foundation:
 
-- React
-- TypeScript
-- Vite or an equally justified modern React build setup
-- Tailwind CSS or scoped CSS system
-- Framer Motion only if the intended motion justifies it
+- React 19
+- TypeScript 6
+- Vite 8
+- Tailwind CSS 4 through `@tailwindcss/vite`
+- React Router 8
+- Fontsource typography
+- Oxlint
+
+No motion library or automated application test suite is currently configured.
 
 Tasks:
 
@@ -152,14 +191,14 @@ Tasks:
 - [x] Initialize application
 - [x] Configure TypeScript
 - [x] Configure linting
-- [x] Configure testing
+- [ ] Establish broader automated application testing after the focused Phase 7A browser harness when feature behavior justifies it
 - [ ] Configure aliases only if needed
-- [ ] Establish route strategy
+- [x] Establish route strategy
 - [ ] Establish content/data structure
-- [ ] Establish asset directories
+- [x] Establish asset directories
 - [ ] Establish metadata strategy
 - [ ] Establish environment strategy if any
-- [ ] Add `.gitignore`
+- [x] Add `.gitignore`
 - [x] Add initial README
 
 ---
@@ -178,10 +217,8 @@ Tasks:
 - [x] Implement focus treatment
 - [x] Implement base motion utilities
 - [x] Implement reduced-motion behavior
-- [ ] Test at desktop width
-- [ ] Test at tablet width
-- [ ] Test at mobile width
-- [ ] Refine DESIGN_SYSTEM tokens from real browser output
+- [x] Complete initial development browser review at representative desktop and responsive widths
+- [ ] Revalidate tokens during the final responsive UX audit and refine only where evidence requires it
 
 Exit criteria: the system should already feel recognizably like the approved art direction before full page content is built.
 
@@ -189,7 +226,7 @@ Exit criteria: the system should already feel recognizably like the approved art
 
 # Phase 7 — Homepage Hero
 
-- [x] Implement navbar
+- [x] Implement the approved desktop Navbar presentation inside current `HomeHero`
 - [x] Implement Hero layout
 - [x] Integrate portrait
 - [x] Produce final portrait/art treatment
@@ -200,10 +237,75 @@ Exit criteria: the system should already feel recognizably like the approved art
 - [x] Implement scroll cue if retained
 - [ ] Implement Hero motion
 - [x] Implement reduced-motion fallback
-- [x] Optimize Hero asset delivery
+- [ ] Optimize Hero asset format and responsive delivery
 - [x] Verify no duplicate downloads
-- [x] Verify mobile composition
-- [x] Verify responsive type scale
+- [x] Complete initial Hero-body visual-direction review at representative desktop and mobile widths
+
+The Hero body is an approved visual surface. This initial review is not final responsive QA, and it does not approve the current narrow/mobile Header. Later verification does not authorize a Hero redesign; any correction should be surgical and evidence-led.
+
+---
+
+# Phase 7A — Minimal Browser Regression Foundation — Current
+
+Purpose: catch collateral visual regressions that lint and build checks cannot detect before more approved surfaces are added.
+
+Preferred tool direction: Playwright, unless repository inspection at implementation time reveals a concrete reason to choose another lightweight browser harness.
+
+- [ ] Confirm the smallest suitable browser-regression setup
+- [ ] Add one desktop baseline covering the approved desktop Header + Hero composition together, while keeping the 430px and 375px baselines scoped to the Hero body only
+- [ ] Add an approved Hero-body visual baseline around 430px
+- [ ] Add an approved Hero-body visual baseline around 375px
+- [ ] Scope narrow baselines to the approved Hero body so the unfinished current mobile Header is not frozen
+- [ ] Keep the harness focused on stable approved surfaces rather than broad end-to-end coverage
+- [ ] Document the focused command and intentional baseline-update workflow
+
+After the mobile Header is implemented, extend the harness with focused coverage for toggle behavior, outside click, `Escape`, keyboard/focus behavior, and obvious horizontal overflow. Do not turn this milestone into a comprehensive testing project.
+
+Exit criteria: a small repeatable browser check can detect obvious collateral movement or breakage of the approved Hero body.
+
+---
+
+# Phase 7B — Site Header Extraction
+
+- [ ] Extract Header/Navbar markup from `HomeHero`
+- [ ] Create a distinct site-level `SiteHeader` component
+- [ ] Render the Header as a sibling of page `<main>` content
+- [ ] Preserve the approved Hero body and desktop Header presentation during extraction
+- [ ] Do not preserve the current cramped narrow/mobile navigation as a design constraint
+- [ ] Keep Header navigation usable independently of the Hero
+
+Exit criteria: Header ownership matches the target site architecture without collateral changes to the approved Hero body or desktop Header presentation.
+
+---
+
+# Phase 7C — Sticky Header and Mobile Navigation
+
+Implement the chosen direction in `DESIGN_SYSTEM.md` as a separate reviewable milestone.
+
+- [ ] Implement sticky Header behavior that remains visually integrated with the site
+- [ ] Replace squeezed narrow navigation with RG identity plus an accessible teal hamburger button
+- [ ] Implement the compact right-aligned mobile popover and distinct `LET'S CONNECT ↗` CTA area
+- [ ] Support toggle-close, outside-click close, and `Escape` close with focus returned to the toggle
+- [ ] Close after choosing a real destination
+- [ ] Clear stale open state when returning to desktop layout
+- [ ] Preserve visible focus, logical keyboard order, and approximately 44 × 44px toggle target
+- [ ] Do not invent functional destinations
+
+Exit criteria: desktop and mobile Header behavior matches the chosen design direction without becoming a fullscreen menu, side drawer, or second navigation row.
+
+---
+
+# Phase 7D — Header/Hero Responsive Re-verification
+
+- [ ] Re-verify Header/Hero composition at 768px after `SiteHeader` extraction
+- [ ] Re-verify Header/Hero composition around 430px after mobile navigation implementation
+- [ ] Re-verify Header/Hero composition around 375px after mobile navigation implementation
+- [ ] Verify hamburger open/close, outside click, `Escape`, keyboard/focus behavior, and real-destination close behavior
+- [ ] Extend the Playwright harness with focused mobile Header behavior coverage: toggle, outside click, Escape/focus restoration, real-destination close, stale-state reset, and horizontal overflow
+- [ ] Verify no obvious horizontal overflow or stale desktop/mobile menu state
+- [ ] Confirm approved Hero-body baselines remain stable; update baselines only for reviewed intentional changes
+
+Exit criteria: the architecture and navigation changes are re-verified at affected widths. This is focused development verification, not the final full-site responsive QA in Phase 12.
 
 ---
 
@@ -308,7 +410,9 @@ Exit criteria: the system should already feel recognizably like the approved art
 
 ---
 
-# Phase 12 — Responsive UX Audit
+# Phase 12 — Final Responsive UX Audit
+
+This is the full-site release-oriented responsive QA pass, separate from initial development review and the focused post-Header re-verification in Phase 7D.
 
 Verify at minimum:
 

@@ -2,11 +2,11 @@
 
 ## Status
 
-**Design System v0.1**
+**Implemented foundation / approved Hero body and desktop Header presentation**
 
-This document translates the approved visual direction into an implementation-oriented system.
+This document records the approved visual direction and the design-system foundation implemented in `src/index.css` and the shared layout/UI primitives.
 
-It is a strong starting point, not immutable law. Values may be adjusted after real browser prototypes reveal better choices.
+The current Hero body is an approved visual surface. Its composition, typography, portrait artwork, copy, responsive behavior, and decorative system should not be reinterpreted outside an explicitly scoped Hero task. The desktop Header/Navbar presentation is also approved. The narrow/mobile Header design is chosen below but not implemented or final in the current source. Tokens may still be refined when browser evidence identifies a concrete problem, but should not drift through unrelated work.
 
 The current visual north star is the approved dark portfolio mock featuring:
 
@@ -109,7 +109,7 @@ Do not turn every art color into a UI state.
 --border-hover: rgba(32, 199, 186, 0.35);
 ```
 
-These values should be visually tested before final freeze.
+These values are implemented in `src/index.css`. Any later adjustment should be driven by scoped browser evidence and reviewed across the relevant breakpoints.
 
 ---
 
@@ -255,19 +255,30 @@ Texture must stay behind content and never reduce readability.
 
 ## Hero
 
+### Site-level relationship
+
+The Header/Navbar and Hero are separate structural concepts:
+
+```text
+App / page shell
+├── SiteHeader
+└── main
+    └── Hero
+```
+
+The Header should support sticky, site-wide behavior without being owned by the Hero. The current code still places `<header>` and `<nav>` inside `HomeHero`; that is current implementation, not target ownership. See `ROADMAP.md` for implementation timing.
+
 ### Structure
 
 Desktop concept:
 
 ```text
-NAV
-
 LEFT
 - technical eyebrow
 - large title
 - supporting line
 - View my work
-- GitHub
+- Download resume (visual placeholder; non-interactive until delivery is finalized)
 - social/technical rail
 
 RIGHT
@@ -278,6 +289,8 @@ RIGHT
 
 SCROLL indicator
 ```
+
+The implemented Hero body follows this art direction and is approved. Surgical changes remain possible when explicitly requested; unrelated sections must not redesign it.
 
 ### Hero Copy
 
@@ -325,17 +338,21 @@ Avoid blocking intro, forced animation sequence, extreme parallax, and custom cu
 
 ## Navigation
 
-Desktop:
+`SiteHeader` is a site-level component in the target architecture, independent from the Hero section.
+
+### Desktop Header — approved
+
+Approved presentation:
 
 ```text
 RG / Roman Gudovich
 Work
 About
-Tools
-GitHub
-LinkedIn
-(optional) Let's talk
+Tech
+Let's connect
 ```
+
+Only real destinations should become interactive. The site-level Header may later expose Tools, GitHub, LinkedIn, or a restrained `Let's talk` action as those destinations become available, but copy and layout should not drift through unrelated work.
 
 On scroll:
 
@@ -345,6 +362,50 @@ On scroll:
 - preserve compact height
 
 Avoid giant floating pill navigation.
+
+### Narrow/mobile Header — chosen direction, not implemented
+
+The current source squeezes desktop navigation into the narrow Header. That behavior is not approved and must not be preserved as a constraint.
+
+Collapsed Header:
+
+```text
+LEFT                 RIGHT
+RG identity          teal hamburger button
+```
+
+- Use one compact row; do not create a second navigation row.
+- Hide the desktop center navigation and desktop top-right CTA at narrow widths.
+- The hamburger must be a real accessible button with an approximately `44 × 44px` usable touch target.
+- Keep the control teal, minimal, and consistent with the technical/editorial visual language.
+- The hamburger may transition into a teal X while open.
+
+Open-menu composition:
+
+```text
+Work
+About
+Tech
+──────── coral/orange divider
+LET'S CONNECT ↗
+```
+
+- Use a compact right-aligned popover beneath the toggle, approximately `14rem / 224px` wide as a starting point.
+- Use a charcoal/near-black surface, restrained portfolio border, modest radius, and compact spacing.
+- Keep `LET'S CONNECT ↗` in a distinct outlined teal CTA area; it must not look like another normal menu item.
+- Do not use a fullscreen menu, side drawer, second navigation row, glassmorphism-heavy surface, generic oversized mobile menu, or giant shadow.
+- Do not invent functional destinations. Render only destinations supported by the current page/application state.
+
+Required interaction direction:
+
+- Toggle the popover from the hamburger; activating the open toggle closes it.
+- Close on outside click.
+- Close on `Escape`, then return focus to the toggle.
+- Close after choosing a real navigation destination.
+- Clear stale open state when returning to the desktop layout.
+- Preserve logical keyboard order, visible focus, and correct toggle relationships such as `aria-expanded` and `aria-controls`.
+
+This section defines target design and interaction behavior only. It does not claim that the mobile menu, sticky Header, or `SiteHeader` architecture is implemented. `ROADMAP.md` owns implementation status and sequencing.
 
 ---
 
@@ -562,12 +623,13 @@ Do not merely stack desktop mechanically.
 
 Preferred order:
 
-1. Navigation
-2. Hero copy
-3. CTA
-4. Portrait/art
+1. Hero copy
+2. CTA
+3. Portrait/art
 
 Keep the artwork substantial.
+
+The site-level Header precedes this sequence and remains structurally separate even when the mobile composition visually flows directly into the Hero.
 
 ### Featured Project
 
@@ -620,6 +682,8 @@ Requirements:
 - preserve LCP
 - no duplicate Hero downloads
 - no layout shift from media
+
+Current note: the implemented Hero uses one high-priority PNG artwork source. Broader responsive-source/format optimization remains performance work; do not document it as complete until measured and verified.
 
 ---
 

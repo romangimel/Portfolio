@@ -37,11 +37,19 @@ The GitHub README explains the repository.
 
 The portfolio case study explains the product, decisions, problems solved, and what the project demonstrates about Roman as a developer.
 
+## Portfolio Implementation Status
+
+The route `/projects/orionlabs` exists in the Portfolio application, but it currently renders a minimal placeholder. The case-study sections, final evidence, screenshots, architecture diagram, and CTAs described here are planned and must not be represented as implemented.
+
+The case study is not the current implementation phase. See `ROADMAP.md` for Portfolio status and sequencing.
+
+This specification remains the source of truth for the case-study narrative. Technical claims and metrics must still be reverified against the current OrionLabs repository before publication.
+
 ---
 
 # Case Study Route
 
-Recommended:
+Established route:
 
 ```text
 /projects/orionlabs

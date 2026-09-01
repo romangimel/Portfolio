@@ -13,6 +13,17 @@ The portfolio should not behave like a résumé rendered as a website. It should
 
 The portfolio itself is also evidence of Roman's UI/UX instincts.
 
+## Current Implementation Status
+
+The repository now contains the React + TypeScript + Vite application, Tailwind-based design-system foundation, local typography, reusable layout/UI primitives, and the approved homepage Hero body.
+
+Current route state:
+
+- `/` renders the implemented Hero.
+- `/projects/orionlabs` exists as a deliberate placeholder; the case-study content is not implemented.
+
+The remaining homepage sections are planned but not yet built. See `ROADMAP.md` for the current implementation phase, sequencing, and outstanding verification.
+
 ---
 
 ## Professional Positioning
@@ -79,13 +90,15 @@ The work should establish credibility before the site asks the visitor to care a
 
 The homepage order should prioritize:
 
-1. Positioning
-2. Work
-3. Evidence
-4. How Roman builds
-5. About
-6. Tools
-7. Contact
+1. Header / navigation
+2. Hero / positioning
+3. Selected Work
+4. Proof / evidence
+5. How Roman builds
+6. About
+7. Tools
+8. Contact
+9. Footer
 
 ### Personality through point of view
 
@@ -129,32 +142,37 @@ If an unusual visual choice exists only to look impressive, remove it.
 
 ### Navbar
 
-Primary structure:
+The Header/Navbar is site-level navigation, independent from the Hero. Its target owner is the app/page shell so it can remain available across sections and support sticky behavior.
+
+The current implementation still renders it inside `HomeHero`; this is not the intended long-term architecture.
+
+Approved desktop presentation:
 
 - Roman Gudovich / RG identity
 - Work
 - About
-- Tools
-- GitHub
-- LinkedIn
+- Tech
+- Let's connect
 
-A restrained `Let's talk` action may be used if it fits the final composition.
+Only Work currently behaves as a link; the other destinations remain placeholders until their sections or external URLs exist. Future site-level navigation may expose Tools, GitHub, LinkedIn, or a restrained `Let's talk` action when those destinations are real and the change is explicitly designed.
+
+At narrow/mobile widths, the chosen target is an RG identity plus a compact teal hamburger that opens a small right-aligned popover. The current squeezed single-row mobile navigation is not approved or final. `DESIGN_SYSTEM.md` owns the detailed mobile design and interaction direction.
 
 Avoid unnecessary navigation items for pages or sections that do not exist.
 
 ### Hero
 
-The hero should include:
+The implemented Hero includes:
 
 - Roman's name/identity
 - Primary title
 - Supporting line
 - `View my work`
-- GitHub link
+- a visually reserved, non-interactive `Download resume` placeholder
 - Portrait/art composition
 - Minimal technical/social detail
 
-The approved hero art direction is:
+The implemented, approved hero art direction is:
 
 - dark black/charcoal background
 - Roman portrait integrated into the layout rather than placed in a rectangular card
@@ -163,7 +181,7 @@ The approved hero art direction is:
 - editorial typography
 - asymmetrical composition
 
-The hero should be visually memorable without becoming difficult to scan.
+The Hero body is an approved visual surface. Preserve its composition, typography, portrait artwork, positioning copy, responsive behavior, and technical decorative system unless a task explicitly targets it. This approval does not freeze the unfinished narrow/mobile Header.
 
 ### Selected Work
 
@@ -321,9 +339,9 @@ See `ORIONLABS_CASE_STUDY.md` for the full specification.
 
 ---
 
-## Initial Portfolio Routes
+## Portfolio Routes
 
-Recommended:
+Implemented route structure:
 
 ```text
 /                           Homepage
@@ -407,23 +425,22 @@ Do not add without a real reason:
 
 ## Repository Documentation
 
-Recommended source-of-truth files:
+Source-of-truth files:
 
 - `PROJECT.md`
 - `DESIGN_SYSTEM.md`
 - `ROADMAP.md`
 - `CONTENT_COPY_PLAN.md`
 - `ORIONLABS_CASE_STUDY.md`
-
-Once implementation begins, add:
-
 - `README.md`
-- optional `AGENTS.md` for Codex/project-level development instructions
+- `AGENTS.md`
+
+Use `ROADMAP.md` for current implementation status. If a documented status conflicts with the current source, inspect the relevant implementation rather than relying on an older claim.
 
 ---
 
 ## Status
 
-Planning and art direction are in progress.
+The product direction, design-system foundation, and homepage Hero body are established. The desktop Header presentation is approved; the mobile Header implementation, rest of the homepage, and full OrionLabs case study remain incomplete.
 
-Do not begin full implementation until the initial design system, content structure, and OrionLabs case-study plan are accepted.
+`ROADMAP.md` is the source of truth for current status and implementation sequencing.

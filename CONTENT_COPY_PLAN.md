@@ -4,9 +4,30 @@
 
 This document defines the intended message hierarchy for Roman Gudovich's developer portfolio.
 
-It is not a final copy lock.
+It contains a mix of locked copy, approved implemented copy, preferred drafts, and unimplemented section direction. Each section's status should be respected rather than treating the entire file as either final or provisional.
 
 The goal is to prevent implementation from drifting into generic developer clichés, inflated claims, résumé dumping, excessive technical detail on the homepage, forced humor, or vague AI buzzwords.
+
+## Current Copy and Implementation Status
+
+- **Header / navigation:** currently rendered inside `HomeHero`. The desktop presentation is approved; the narrow/mobile menu direction is chosen but not implemented. Final destinations remain incomplete.
+- **Hero:** implemented and approved as a body composition. The title and supporting line are locked; preserve the current eyebrow, CTA hierarchy, code annotation, and visual copy unless a task explicitly targets the Hero.
+- **Selected Work, Proof, How I Build, About, Tools, Contact, and Footer:** not implemented. Copy below remains locked, preferred, or draft exactly where labeled.
+- **OrionLabs case study:** route placeholder exists; the case-study copy and content remain planned.
+
+Homepage structure:
+
+1. Header / navigation
+2. Hero
+3. Selected Work
+4. Proof / evidence
+5. How I Build
+6. About
+7. Tools
+8. Contact
+9. Footer
+
+Header and Hero are separate structural concepts even though the current implementation renders them together.
 
 ---
 
@@ -62,23 +83,35 @@ The goal is to prevent implementation from drifting into generic developer clich
 
 ## Navbar
 
-Preferred:
+Status: **desktop presentation approved; mobile menu chosen but not implemented; destinations incomplete**.
+
+Approved desktop labels:
 
 - Work
 - About
-- Tools
-- GitHub
-- LinkedIn
+- Tech
+- Let's connect
 
-Optional:
+Chosen narrow/mobile menu copy:
 
-- Let's talk
+- Work
+- About
+- Tech
+- distinct CTA: `LET'S CONNECT ↗`
+
+The mobile CTA must remain visually separate from the normal menu items. These labels define copy direction, not working destinations or implemented menu behavior.
+
+Future site-wide navigation may expose Tools, GitHub, LinkedIn, or a `Let's talk` action when those destinations exist and the change is explicitly designed.
+
+The Header/Navbar belongs to the site shell, not to the Hero section. Its current ownership inside `HomeHero` is technical debt.
 
 Do not add labels for nonexistent sections.
 
 ---
 
 # Hero
+
+Status: **implemented and approved Hero-body visual surface**.
 
 ## H1
 
@@ -103,17 +136,15 @@ Locked:
 
 ## Primary CTA
 
-Preferred:
+Implemented and approved:
 
 > **View my work**
 
 ## Secondary
 
-Preferred:
+The implemented visual uses a non-interactive `Download resume` placeholder. Its destination and final enabled behavior are not locked. Do not turn it into a live control until a current résumé and delivery decision exist.
 
-> **GitHub**
-
-A résumé download may be added later if a current, polished résumé exists.
+GitHub remains a future possible secondary destination, not implemented Hero behavior.
 
 ## Small Personality Line
 
@@ -128,6 +159,8 @@ If location is omitted publicly, remove the first sentence.
 ---
 
 # Selected Work
+
+Status: **not implemented; preferred copy below remains planned**.
 
 ## Heading
 
@@ -144,6 +177,8 @@ Keep simple.
 ---
 
 # OrionLabs Featured Project
+
+Status: **not implemented; copy remains preferred draft unless explicitly labeled otherwise**.
 
 ## Name
 
@@ -200,6 +235,8 @@ Tertiary:
 
 # Proof Strip
 
+Status: **not implemented; every claim must be reverified before publication**.
+
 Use real evidence only.
 
 Preferred four:
@@ -224,6 +261,8 @@ Do not use fake experience/client metrics.
 
 # How I Build
 
+Status: **not implemented; the three principles are conceptually locked**.
+
 ## Section label
 
 Preferred:
@@ -247,6 +286,8 @@ These principles are currently locked conceptually. Exact punctuation may be ref
 ---
 
 # About
+
+Status: **not implemented; draft copy**.
 
 ## Headline
 
@@ -288,6 +329,8 @@ The How I Build section should communicate the philosophy naturally.
 
 # Tools
 
+Status: **not implemented; planned recruiter-readable grouping**.
+
 ## Heading
 
 Preferred:
@@ -324,6 +367,8 @@ Do not rate skills numerically.
 
 # Contact
 
+Status: **not implemented; draft direction**.
+
 ## Headline Options
 
 Preferred:
@@ -359,6 +404,8 @@ Optional:
 
 # Footer
 
+Status: **not implemented; preferred direction**.
+
 Preferred:
 
 ```text
@@ -373,6 +420,8 @@ Avoid cliché footer statements.
 ---
 
 # OrionLabs Case Study Copy Hierarchy
+
+Status: **not implemented; `/projects/orionlabs` currently renders a placeholder**.
 
 The case study should use different copy depth for different readers.
 
