@@ -13,19 +13,6 @@ The portfolio should not behave like a résumé rendered as a website. It should
 
 The portfolio itself is also evidence of Roman's UI/UX instincts.
 
-## Current Implementation Status
-
-The repository now contains the React + TypeScript + Vite application, Tailwind-based design-system foundation, local typography, reusable layout/UI primitives, and the approved homepage Hero body.
-
-Current route state:
-
-- `/` renders the implemented Hero.
-- `/projects/orionlabs` exists as a deliberate placeholder; the case-study content is not implemented.
-
-The remaining homepage sections are planned but not yet built. See `ROADMAP.md` for the current implementation phase, sequencing, and outstanding verification.
-
----
-
 ## Professional Positioning
 
 ### Primary title
@@ -142,9 +129,7 @@ If an unusual visual choice exists only to look impressive, remove it.
 
 ### Navbar
 
-The Header/Navbar is site-level navigation, independent from the Hero. Its target owner is the app/page shell so it can remain available across sections and support sticky behavior.
-
-The current implementation still renders it inside `HomeHero`; this is not the intended long-term architecture.
+The Header/Navbar is site-level navigation, independent from the Hero. Its owner is the app/page shell so it can remain available across sections and support sticky behavior.
 
 Approved desktop presentation:
 
@@ -154,15 +139,15 @@ Approved desktop presentation:
 - Tech
 - Let's connect
 
-Only Work currently behaves as a link; the other destinations remain placeholders until their sections or external URLs exist. Future site-level navigation may expose Tools, GitHub, LinkedIn, or a restrained `Let's talk` action when those destinations are real and the change is explicitly designed.
+Until other real destinations exist, Work should be the only active content link; other labels should remain non-interactive. Future site-level navigation may expose Tools, GitHub, LinkedIn, or a restrained `Let's talk` action when those destinations are real and the change is explicitly designed.
 
-At narrow/mobile widths, the chosen target is an RG identity plus a compact teal hamburger that opens a small right-aligned popover. The current squeezed single-row mobile navigation is not approved or final. `DESIGN_SYSTEM.md` owns the detailed mobile design and interaction direction.
+At narrow/mobile widths, use an RG identity plus a compact teal hamburger that opens a small right-aligned popover. Do not squeeze the desktop navigation into a narrow single row. `DESIGN_SYSTEM.md` owns the detailed mobile design and interaction direction.
 
 Avoid unnecessary navigation items for pages or sections that do not exist.
 
 ### Hero
 
-The implemented Hero includes:
+The Hero specification includes:
 
 - Roman's name/identity
 - Primary title
@@ -172,7 +157,7 @@ The implemented Hero includes:
 - Portrait/art composition
 - Minimal technical/social detail
 
-The implemented, approved hero art direction is:
+The approved Hero art direction is:
 
 - dark black/charcoal background
 - Roman portrait integrated into the layout rather than placed in a rectangular card
@@ -181,7 +166,7 @@ The implemented, approved hero art direction is:
 - editorial typography
 - asymmetrical composition
 
-The Hero body is an approved visual surface. Preserve its composition, typography, portrait artwork, positioning copy, responsive behavior, and technical decorative system unless a task explicitly targets it. This approval does not freeze the unfinished narrow/mobile Header.
+The Hero body is an approved visual surface. Preserve its composition, typography, portrait artwork, positioning copy, responsive behavior, and technical decorative system unless a task explicitly targets it. Site-level Header behavior is governed separately.
 
 ### Selected Work
 
@@ -341,7 +326,7 @@ See `ORIONLABS_CASE_STUDY.md` for the full specification.
 
 ## Portfolio Routes
 
-Implemented route structure:
+Initial route architecture:
 
 ```text
 /                           Homepage
@@ -378,7 +363,7 @@ If asked in an interview how much implementation was AI-assisted, answer honestl
 
 ## Quality Expectations
 
-The portfolio must eventually be validated for:
+Before release, the portfolio must be validated for:
 
 - responsive behavior
 - physical mobile
@@ -435,12 +420,4 @@ Source-of-truth files:
 - `README.md`
 - `AGENTS.md`
 
-Use `ROADMAP.md` for current implementation status. If a documented status conflicts with the current source, inspect the relevant implementation rather than relying on an older claim.
-
----
-
-## Status
-
-The product direction, design-system foundation, and homepage Hero body are established. The desktop Header presentation is approved; the mobile Header implementation, rest of the homepage, and full OrionLabs case study remain incomplete.
-
-`ROADMAP.md` is the source of truth for current status and implementation sequencing.
+Code is the source of truth for exact implementation behavior. Use `ROADMAP.md` for implementation progress, sequencing, deferred work, and outstanding verification.

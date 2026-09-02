@@ -1,14 +1,12 @@
 # Portfolio Design System
 
-## Status
+## Approved Scope
 
-**Implemented foundation / approved Hero body and desktop Header presentation**
+This document records the approved visual direction, tokens, layout principles, responsive rules, interaction direction, and protected visual surfaces. Code is the source of truth for exact implementation behavior; `ROADMAP.md` owns implementation progress and sequencing.
 
-This document records the approved visual direction and the design-system foundation implemented in `src/index.css` and the shared layout/UI primitives.
+The Hero body is an approved visual surface. Its composition, typography, portrait artwork, copy, responsive behavior, and decorative system should not be reinterpreted outside an explicitly scoped Hero task. The desktop and narrow/mobile Header directions are also approved. Tokens may be refined when browser evidence identifies a concrete problem, but should not drift through unrelated work.
 
-The current Hero body is an approved visual surface. Its composition, typography, portrait artwork, copy, responsive behavior, and decorative system should not be reinterpreted outside an explicitly scoped Hero task. The desktop and narrow/mobile Header directions are also approved. Tokens may still be refined when browser evidence identifies a concrete problem, but should not drift through unrelated work.
-
-The current visual north star is the approved dark portfolio mock featuring:
+The visual north star is the approved dark portfolio mock featuring:
 
 - Roman's portrait on the right side of the Hero
 - expressive teal + coral/orange + selective magenta artwork
@@ -109,7 +107,7 @@ Do not turn every art color into a UI state.
 --border-hover: rgba(32, 199, 186, 0.35);
 ```
 
-These values are implemented in `src/index.css`. Any later adjustment should be driven by scoped browser evidence and reviewed across the relevant breakpoints.
+These values define the source tokens in `src/index.css`. Any adjustment should be driven by scoped browser evidence and reviewed across the relevant breakpoints.
 
 ---
 
@@ -290,7 +288,7 @@ RIGHT
 SCROLL indicator
 ```
 
-The implemented Hero body follows this art direction and is approved. Surgical changes remain possible when explicitly requested; unrelated sections must not redesign it.
+The Hero body follows this approved art direction. Surgical changes remain possible when explicitly requested; unrelated sections must not redesign it.
 
 ### Hero Copy
 
@@ -367,8 +365,6 @@ Do not turn the Header into a floating pill, add a large shadow or glow, or intr
 
 ### Narrow/mobile Header — approved direction
 
-The current source squeezes desktop navigation into the narrow Header. That behavior is not approved and must not be preserved as a constraint.
-
 Collapsed Header:
 
 ```text
@@ -402,7 +398,7 @@ LET'S CONNECT ↗
 - Use a charcoal/near-black surface, restrained portfolio border, modest radius, and compact spacing.
 - Keep `LET'S CONNECT ↗` in a distinct outlined teal CTA area; it must not look like another normal menu item.
 - Do not use a fullscreen menu, side drawer, second navigation row, glassmorphism-heavy surface, generic oversized mobile menu, or giant shadow.
-- Do not invent functional destinations. Render only destinations supported by the current page/application state.
+- Do not invent functional destinations. Render only destinations backed by real page sections, routes, or external URLs.
 
 Required interaction direction:
 
@@ -690,8 +686,6 @@ Requirements:
 - preserve LCP
 - no duplicate Hero downloads
 - no layout shift from media
-
-Current note: the implemented Hero uses one high-priority PNG artwork source. Broader responsive-source/format optimization remains performance work; do not document it as complete until measured and verified.
 
 ---
 

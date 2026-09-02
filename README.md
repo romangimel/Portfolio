@@ -4,16 +4,9 @@ Recruiter-facing, design-forward portfolio for **Roman Gudovich**, a full-stack 
 
 > **I build polished, production-ready products with strong UX, reliable AI integrations, and deliberate engineering behind the scenes.**
 
-## Status
+## Project Roadmap
 
-The application foundation, reusable design-system primitives, and art-directed homepage Hero body are implemented. The Hero body and desktop Header presentation are approved; the chosen mobile Header/navigation direction is not yet implemented.
-
-Current routes:
-
-- `/` — implemented homepage Hero; later homepage sections are not yet built
-- `/projects/orionlabs` — established route with a temporary case-study placeholder
-
-Development is active. See [`ROADMAP.md`](./ROADMAP.md) for the current phase, detailed implementation sequence, and outstanding verification.
+See [`ROADMAP.md`](./ROADMAP.md) for implementation status, the current phase, sequencing, deferred work, and outstanding verification.
 
 ## Direction
 
@@ -34,8 +27,6 @@ App / page shell
     ├── Contact
     └── Footer
 ```
-
-The current Header is still implemented inside `HomeHero`; that ownership and the current narrow navigation are not the target architecture.
 
 ## Stack
 
@@ -72,13 +63,8 @@ Available repository checks:
 ```bash
 npm run lint
 npm run build
+npm run test:visual
 ```
-
-An automated application test suite is not currently configured.
-
-## Live Site
-
-A production deployment is not documented in this repository yet.
 
 ## License
 

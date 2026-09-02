@@ -37,13 +37,11 @@ The GitHub README explains the repository.
 
 The portfolio case study explains the product, decisions, problems solved, and what the project demonstrates about Roman as a developer.
 
-## Portfolio Implementation Status
+## Specification Authority
 
-The route `/projects/orionlabs` exists in the Portfolio application, but it currently renders a minimal placeholder. The case-study sections, final evidence, screenshots, architecture diagram, and CTAs described here are planned and must not be represented as implemented.
+This document is the source of truth for the case-study narrative, content requirements, evidence requirements, visual strategy, and durable case-study decisions.
 
-The case study is not the current implementation phase. See `ROADMAP.md` for Portfolio status and sequencing.
-
-This specification remains the source of truth for the case-study narrative. Technical claims and metrics must still be reverified against the current OrionLabs repository before publication.
+Technical claims and metrics must be reverified against the OrionLabs repository before publication. `ROADMAP.md` owns Portfolio implementation status and sequencing.
 
 ---
 
@@ -328,7 +326,7 @@ Explain the mixed Vite 5/Vite 8 tree, final coherent Vite 6 alignment, native ES
 
 Make this highly scannable.
 
-Current verified evidence:
+Candidate evidence to reverify before publication:
 
 ```text
 252 automated tests

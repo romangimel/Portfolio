@@ -18,24 +18,7 @@ Use the repository documentation by subject:
 - `ORIONLABS_CASE_STUDY.md` — planned case-study narrative, evidence, and visual strategy
 - `README.md` — concise public repository overview
 
-Before meaningful changes, read only the documents and implementation files relevant to the task. Documentation governs intent, but implementation status must be verified in the current source. If a status statement conflicts with the code, inspect the relevant implementation before making assumptions and reconcile the documentation only when the task explicitly includes documentation work.
-
----
-
-## Current Project State
-
-The repository is an active React + TypeScript + Vite application, not a planning-only project.
-
-Implemented today:
-
-- Tailwind CSS foundation, local project typography, responsive tokens, focus treatment, and reduced-motion rules
-- reusable layout/UI primitives for containers, sections, actions, labels, surfaces, and media
-- React Router composition for `/` and `/projects/orionlabs`
-- approved, art-directed homepage Hero body with portrait artwork, desktop technical/social rails, code annotation, CTA hierarchy, and responsive layouts
-- an approved desktop Header/Navbar presentation; narrow/mobile Header behavior is not final
-- a minimal placeholder at `/projects/orionlabs`; the full case study is not implemented
-
-The rest of the homepage is not yet implemented. Consult `ROADMAP.md` for the current implementation phase, detailed sequencing, and outstanding verification work.
+Before meaningful changes, read only the documents and implementation files relevant to the task. Documentation governs intent, but code is the source of truth for exact implementation behavior. `ROADMAP.md` records progress and sequencing. If roadmap status conflicts with source, inspect the relevant implementation rather than propagating the stale claim.
 
 ---
 
@@ -96,7 +79,7 @@ Preserve the approved direction:
 - no generic SaaS-dashboard look
 - no cyberpunk/hacker-terminal clichés
 
-The implemented Hero body is an approved visual surface. Its structure is considered locked:
+The approved Hero body is a protected visual surface. Its structure is considered locked:
 
 - large editorial title on the left
 - Roman's portrait integrated on the right
@@ -107,7 +90,7 @@ The implemented Hero body is an approved visual surface. Its structure is consid
 
 Do not change the Hero body's layout, typography, artwork, copy, responsive behavior, or decorative system unless the task explicitly targets that surface. The desktop Header/Navbar visual presentation is also approved.
 
-The narrow/mobile Header is not approved in its current source form. Its hamburger/popover direction is defined in `DESIGN_SYSTEM.md`, but the visual implementation, interaction behavior, sticky behavior, and `SiteHeader` extraction remain unfinished. Do not preserve cramped current mobile navigation merely because it exists. Future sections become subject to approved-surface protection once they are marked approved.
+At narrow/mobile widths, preserve the RG identity plus compact teal hamburger and right-aligned popover direction defined in `DESIGN_SYSTEM.md`; do not reintroduce a cramped desktop-navigation row. Future sections become subject to approved-surface protection once they are marked approved.
 
 ---
 
@@ -115,7 +98,7 @@ The narrow/mobile Header is not approved in its current source form. Its hamburg
 
 The Header/Navbar is a site-level component. The Hero is a page section and must not conceptually own site-wide navigation.
 
-Target structure:
+Intended structure:
 
 ```text
 App / page shell
@@ -130,10 +113,6 @@ App / page shell
     ├── Contact
     └── Footer
 ```
-
-Current implementation: `HomeHero.tsx` still renders the `<main>`, `<header>`, and `<nav>` together. This does not change the target architecture. Consult `ROADMAP.md` for when the extraction and sticky/mobile Header work occur.
-
----
 
 ## Design Rule
 
@@ -184,18 +163,23 @@ Do not:
 - alter an approved visual surface as collateral work
 - refactor for style or preference unrelated to the request
 - change approved copy unless explicitly requested
-- update `ROADMAP.md`, `README.md`, or other documentation as an automatic side effect of implementation work
+- update documentation other than ROADMAP.md as an automatic side effect of implementation work
 
 Documentation changes should be explicitly in scope. When they are, update only claims affected by verified repository evidence.
 
 ### Documentation maintenance
 
+`ROADMAP.md` is the only file allowed to own implementation status, completed versus incomplete work, the current phase, sequencing, deferred implementation work, and outstanding verification.
+
+Other documents must contain durable decisions, requirements, constraints, approved specifications, or subject-specific states such as `locked`, `preferred draft`, and `approved visual direction`. Do not use phrases such as `currently implemented`, `not yet implemented`, `unfinished`, `current source`, or `next phase` outside `ROADMAP.md` to narrate temporary implementation status.
+
 When an implementation milestone completes:
 
-- update detailed completion status, outstanding verification, and sequencing only in `ROADMAP.md`
-- update another document only when the milestone changes a fact owned by that document's subject
-- do not mechanically copy roadmap status across the documentation set
-- do not allow multiple documents to independently define what happens next
+- update `ROADMAP.md`
+- update another document only if the task changed a durable fact owned by that document
+- do not perform a broad multi-document status sync
+
+Code remains the source of truth for exact implementation behavior. If roadmap status conflicts with source, inspect the relevant implementation and correct `ROADMAP.md` rather than propagating stale status elsewhere.
 
 ---
 
@@ -205,7 +189,7 @@ Codex may implement a complete section when that section is the explicit task. O
 
 - Do not reinterpret an approved reference during unrelated work.
 - Preserve approved geometry, artwork, copy, and interaction direction.
-- Preserve the approved Hero body and desktop Header presentation, but use the chosen mobile-navigation direction instead of treating the current narrow Header as locked.
+- Preserve the approved Hero body, desktop Header presentation, and chosen mobile-navigation direction.
 - Review visual changes at desktop, tablet, 430px mobile, and 375px mobile as applicable.
 - Check for horizontal overflow, usable touch targets, keyboard focus, and reduced-motion behavior.
 - Treat build and lint results as structural evidence only; they do not prove that rendered output is visually unchanged.
@@ -431,11 +415,3 @@ Do not agree just to be agreeable.
 When there is a better alternative, explain the tradeoff.
 
 When asked for a Codex prompt, provide **one complete ready-to-paste prompt** rather than fragments that must be assembled manually.
-
----
-
-## Implementation Status Ownership
-
-`ROADMAP.md` is the only detailed source of truth for the current implementation phase, completed versus incomplete work, immediate sequencing, the next engineering task, the next major product phase, and outstanding verification.
-
-Do not infer sequencing from this file or copy roadmap checklists here. Before beginning implementation, consult the current roadmap and then inspect the relevant source.
