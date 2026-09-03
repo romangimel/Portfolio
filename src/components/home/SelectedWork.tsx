@@ -1,17 +1,26 @@
-import desktopScreenshot from '../../assets/projects/orionlabs/desktop-screenshot.png'
-import phoneScreenshot from '../../assets/projects/orionlabs/phone-screenshot.png'
+import workSectionArtwork from '../../assets/projects/orionlabs/work-section-art.png'
 import { Section } from '../layout/Section'
 import { SiteContainer } from '../layout/SiteContainer'
 import { ActionLink } from '../ui/Action'
 import { SectionLabel } from '../ui/SectionLabel'
 import { Surface } from '../ui/Surface'
+import { HomepageIcon } from './HomepageIcon'
 import './SelectedWork.css'
 
 const proofItems = [
-  { value: '252', label: 'Automated tests' },
-  { value: '420', label: 'Signature combinations' },
-  { value: '2', label: 'Server-side AI endpoints' },
-  { value: '52 → 11', label: 'Runtime dependencies' },
+  { value: '252', label: 'Automated tests', icon: 'shield-check' },
+  { value: '420', label: 'Signature combinations', icon: 'constellation' },
+  { value: '2', label: 'Server-side AI endpoints', icon: 'code' },
+  { value: '52 → 11', label: 'Runtime dependencies', icon: 'package' },
+] as const
+
+const stackItems = [
+  { label: 'React', icon: 'react' },
+  { label: 'TypeScript', icon: 'typescript' },
+  { label: 'Gemini', icon: 'gemini' },
+  { label: 'Groq', icon: 'groq' },
+  { label: 'Vercel', icon: 'vercel' },
+  { label: 'Zod', icon: 'zod' },
 ] as const
 
 /** Presents OrionLabs as the homepage's flagship project and evidence surface. */
@@ -22,7 +31,7 @@ export function SelectedWork() {
       id="work"
       aria-labelledby="selected-work-title"
     >
-      <SiteContainer>
+      <SiteContainer className="selected-work__container">
         <Surface className="selected-work__feature">
           <div className="selected-work__main">
             <div className="selected-work__copy">
@@ -30,9 +39,10 @@ export function SelectedWork() {
 
               <h2 className="selected-work__title" id="selected-work-title">
                 OrionLabs
-                <span className="selected-work__title-mark" aria-hidden="true">
-                  ✦
-                </span>
+                <HomepageIcon
+                  className="selected-work__title-mark"
+                  name="sparkle"
+                />
               </h2>
 
               <p className="selected-work__descriptor">
@@ -47,9 +57,12 @@ export function SelectedWork() {
               </p>
 
               <ul className="selected-work__stack" aria-label="Technology stack">
-                {['React', 'TypeScript', 'Gemini', 'Groq', 'Vercel', 'Zod'].map(
-                  (technology) => <li key={technology}>{technology}</li>,
-                )}
+                {stackItems.map((technology) => (
+                  <li key={technology.label}>
+                    <HomepageIcon name={technology.icon} />
+                    <span>{technology.label}</span>
+                  </li>
+                ))}
               </ul>
 
               <p className="selected-work__personality">
@@ -88,37 +101,17 @@ export function SelectedWork() {
               </div>
             </div>
 
-            <figure className="selected-work__devices">
-              <div className="selected-work__atmosphere" aria-hidden="true" />
-
-              <div className="selected-work__laptop">
-                <div className="selected-work__laptop-screen">
-                  <span className="selected-work__laptop-camera" aria-hidden="true" />
-                  <img
-                    src={desktopScreenshot}
-                    alt="OrionLabs landing page displayed on a laptop"
-                    width="1534"
-                    height="729"
-                    loading="lazy"
-                    decoding="async"
-                    draggable="false"
-                  />
-                </div>
-                <span className="selected-work__laptop-base" aria-hidden="true" />
-              </div>
-
-              <div className="selected-work__phone">
-                <span className="selected-work__phone-speaker" aria-hidden="true" />
-                <img
-                  src={phoneScreenshot}
-                  alt="OrionLabs personalized report displayed on a phone"
-                  width="311"
-                  height="660"
-                  loading="lazy"
-                  decoding="async"
-                  draggable="false"
-                />
-              </div>
+            <figure className="selected-work__media">
+              <img
+                className="selected-work__artwork"
+                src={workSectionArtwork}
+                alt="OrionLabs landing page and personalized report shown on laptop and phone mockups"
+                width="1672"
+                height="941"
+                loading="lazy"
+                decoding="async"
+                draggable="false"
+              />
 
               <figcaption className="selected-work__device-caption">
                 Landing experience and personalized report
@@ -129,8 +122,14 @@ export function SelectedWork() {
           <dl className="selected-work__proof" aria-label="OrionLabs evidence">
             {proofItems.map((item) => (
               <div className="selected-work__proof-item" key={item.label}>
-                <dt>{item.value}</dt>
-                <dd>{item.label}</dd>
+                <HomepageIcon
+                  className="selected-work__proof-icon"
+                  name={item.icon}
+                />
+                <div className="selected-work__proof-copy">
+                  <dt>{item.value}</dt>
+                  <dd>{item.label}</dd>
+                </div>
               </div>
             ))}
           </dl>

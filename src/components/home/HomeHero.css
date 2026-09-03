@@ -137,6 +137,13 @@
   text-transform: uppercase;
 }
 
+.hero__download-icon {
+  width: 1rem;
+  height: 1rem;
+  color: rgba(242, 240, 234, 0.72);
+  stroke-width: 1.2;
+}
+
 .hero__actions .action-secondary,
 .hero__secondary-action {
   white-space: nowrap;
@@ -268,19 +275,15 @@
   gap: 1.38rem;
 }
 
-.hero__technical-rail svg {
-  width: 1.56rem;
-  height: 1.56rem;
-  overflow: visible;
-  fill: currentColor;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.35;
+.hero__technical-rail .homepage-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  stroke-width: 1.2;
 }
 
-.hero__technical-rail svg:last-child {
-  fill: none;
+.hero__technical-rail .homepage-icon:first-of-type {
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
 .hero__rail-line {

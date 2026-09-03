@@ -20,7 +20,7 @@ async function openReadySelectedWork(page: Page, viewport = VIEWPORTS[0]) {
   const productImages = section.getByRole('img')
 
   await expect(section).toBeVisible()
-  await expect(productImages).toHaveCount(2)
+  await expect(productImages).toHaveCount(1)
 
   for (const image of await productImages.all()) {
     await image.evaluate(async (element) => {
@@ -57,6 +57,87 @@ test('Selected Work exposes one real CTA and factual proof', async ({ page }) =>
   await expect(section.getByRole('link')).toHaveCount(1)
   await expect(section.locator('[aria-disabled="true"]')).toHaveCount(2)
   await expect(section.locator('.selected-work__proof-item')).toHaveCount(4)
+  await expect(
+    section.locator('.selected-work__proof-icon'),
+  ).toHaveCount(4)
+  await expect(
+    section.locator('.selected-work__stack .homepage-icon'),
+  ).toHaveCount(6)
+  await expect(section.locator('.selected-work__artwork')).toHaveAttribute(
+    'src',
+    /work-section-art/,
+  )
+  await expect(
+    section.locator(
+      '.selected-work__laptop, .selected-work__phone, .selected-work__plinth',
+    ),
+  ).toHaveCount(0)
+
+  await expect(
+    section.locator('.selected-work__proof-icon[data-icon="shield-check"]'),
+  ).toHaveCount(1)
+  await expect(
+    section.locator('.selected-work__proof-icon[data-icon="constellation"]'),
+  ).toHaveCount(1)
+  await expect(
+    section.locator('.selected-work__proof-icon[data-icon="code"]'),
+  ).toHaveCount(1)
+  await expect(
+    section.locator('.selected-work__proof-icon[data-icon="package"]'),
+  ).toHaveCount(1)
+
+  const stackIconNames = await section
+    .locator('.selected-work__stack .homepage-icon')
+    .evaluateAll((icons) => icons.map((icon) => icon.getAttribute('data-icon')))
+
+  expect(stackIconNames).toEqual([
+    'react',
+    'typescript',
+    'gemini',
+    'groq',
+    'vercel',
+    'zod',
+  ])
+
+  const proofColors = await section
+    .locator('.selected-work__proof-item')
+    .evaluateAll((items) =>
+      items.map((item) => ({
+        icon: getComputedStyle(
+          item.querySelector('.selected-work__proof-icon') as SVGElement,
+        ).color,
+        value: getComputedStyle(item.querySelector('dt') as HTMLElement).color,
+      })),
+    )
+
+  expect(proofColors).toEqual(
+    Array.from({ length: 4 }, () => ({
+      icon: 'rgb(32, 199, 186)',
+      value: 'rgb(255, 139, 61)',
+    })),
+  )
+
+  await expect(
+    section.locator('.selected-work__stack [data-icon="groq"] path').first(),
+  ).toHaveCSS('fill', 'rgba(255, 139, 61, 0.8)')
+
+  const primaryActionMotion = await section
+    .locator('.selected-work__primary-action')
+    .evaluate((element) => {
+      const style = getComputedStyle(element)
+      return {
+        animationName: style.animationName,
+        transitionDuration: style.transitionDuration,
+      }
+    })
+
+  expect(primaryActionMotion).toEqual({
+    animationName: 'none',
+    transitionDuration: '0s',
+  })
+
+  await caseStudyLink.hover()
+  await expect(caseStudyLink).toHaveCSS('transform', 'none')
 
   await caseStudyLink.click()
   await expect(page).toHaveURL(/\/projects\/orionlabs$/)

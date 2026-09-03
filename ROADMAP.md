@@ -317,7 +317,7 @@ Exit criteria: the architecture and navigation changes are re-verified at affect
 - [x] Add project personality line
 - [x] Implement evidence/proof strip
 - [x] Ensure all evidence is factual
-- [x] Add hover/motion treatment
+- [x] Keep the Selected Work presentation static
 - [x] Verify responsive media composition
 
 ---
