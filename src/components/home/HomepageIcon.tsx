@@ -12,6 +12,7 @@ type HomepageIconName =
   | 'mail'
   | 'react'
   | 'package'
+  | 'server'
   | 'sparkle'
   | 'shield-check'
   | 'typescript'
@@ -81,6 +82,13 @@ export function HomepageIcon({ className, name }: HomepageIconProps) {
       <>
         <path d="m4 7.75 8-4.25 8 4.25v8.5L12 20.5l-8-4.25v-8.5Z" />
         <path d="m4.35 7.95 7.65 4.1 7.65-4.1M12 12.05v8.1M8 5.62l8 4.28" />
+      </>
+    ),
+    server: (
+      <>
+        <rect x="3.5" y="3.5" width="17" height="7" rx="1.25" />
+        <rect x="3.5" y="13.5" width="17" height="7" rx="1.25" />
+        <path d="M7 7h.01M7 17h.01M10.5 7h6.5M10.5 17h6.5" />
       </>
     ),
     sparkle: <path d="M12 2.9c.48 5.1 3 7.62 8.1 8.1-5.1.48-7.62 3-8.1 8.1-.48-5.1-3-7.62-8.1-8.1C9 10.52 11.52 8 12 2.9Z" />,

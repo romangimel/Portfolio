@@ -10,7 +10,7 @@ import './SelectedWork.css'
 const proofItems = [
   { value: '252', label: 'Automated tests', icon: 'shield-check' },
   { value: '420', label: 'Signature combinations', icon: 'constellation' },
-  { value: '2', label: 'Server-side AI endpoints', icon: 'code' },
+  { value: '2', label: 'Server-side AI endpoints', icon: 'server' },
   { value: '52 → 11', label: 'Runtime dependencies', icon: 'package' },
 ] as const
 
@@ -96,7 +96,10 @@ export function SelectedWork() {
                   title="GitHub URL is not yet confirmed"
                 >
                   GitHub
-                  <span aria-hidden="true">↗</span>
+                  <HomepageIcon
+                    className="selected-work__action-icon"
+                    name="github"
+                  />
                 </span>
               </div>
             </div>

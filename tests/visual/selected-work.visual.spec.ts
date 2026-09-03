@@ -80,7 +80,7 @@ test('Selected Work exposes one real CTA and factual proof', async ({ page }) =>
     section.locator('.selected-work__proof-icon[data-icon="constellation"]'),
   ).toHaveCount(1)
   await expect(
-    section.locator('.selected-work__proof-icon[data-icon="code"]'),
+    section.locator('.selected-work__proof-icon[data-icon="server"]'),
   ).toHaveCount(1)
   await expect(
     section.locator('.selected-work__proof-icon[data-icon="package"]'),
@@ -113,7 +113,29 @@ test('Selected Work exposes one real CTA and factual proof', async ({ page }) =>
   expect(proofColors).toEqual(
     Array.from({ length: 4 }, () => ({
       icon: 'rgb(32, 199, 186)',
-      value: 'rgb(255, 139, 61)',
+      value: 'rgb(255, 101, 74)',
+    })),
+  )
+
+  await expect(
+    section.locator('.selected-work__unavailable-action [data-icon="github"]'),
+  ).toHaveCount(1)
+
+  const proofAlignment = await section
+    .locator('.selected-work__proof-item')
+    .evaluateAll((items) =>
+      items.map((item) => ({
+        content: getComputedStyle(item).justifyContent,
+        text: getComputedStyle(
+          item.querySelector('.selected-work__proof-copy') as HTMLElement,
+        ).textAlign,
+      })),
+    )
+
+  expect(proofAlignment).toEqual(
+    Array.from({ length: 4 }, () => ({
+      content: 'center',
+      text: 'center',
     })),
   )
 
