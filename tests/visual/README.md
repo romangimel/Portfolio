@@ -1,4 +1,4 @@
-# Focused Header and Hero browser tests
+# Focused homepage browser tests
 
 The Playwright harness protects the currently approved homepage surfaces:
 
@@ -7,6 +7,9 @@ The Playwright harness protects the currently approved homepage surfaces:
 - mobile Header behavior: closed state, toggle, outside click, Escape/focus
   restoration, real-destination close, responsive stale-state reset, and
   horizontal-overflow/menu-fit checks
+- Selected Work: desktop and mobile visual baselines, CTA semantics, proof-item
+  count, real product media, and no-horizontal-overflow checks at the project’s
+  five representative development widths
 
 The desktop screenshot calculates one tightly bounded, full-width region from the separate `.site-header` and `.hero` visual bounds. It therefore protects their combined composition without requiring the Header to remain nested inside the Hero.
 

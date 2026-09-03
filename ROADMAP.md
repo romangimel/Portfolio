@@ -307,18 +307,18 @@ Exit criteria: the architecture and navigation changes are re-verified at affect
 
 # Phase 8 — Homepage Work Section
 
-- [ ] Implement Selected Work section
-- [ ] Implement OrionLabs featured composition
-- [ ] Use real OrionLabs product imagery
-- [ ] Add case-study CTA
-- [ ] Add live-demo CTA
-- [ ] Add GitHub CTA
-- [ ] Add tech metadata
-- [ ] Add project personality line
-- [ ] Implement evidence/proof strip
-- [ ] Ensure all evidence is factual
-- [ ] Add hover/motion treatment
-- [ ] Verify responsive media composition
+- [x] Implement Selected Work section
+- [x] Implement OrionLabs featured composition
+- [x] Use real OrionLabs product imagery
+- [x] Add case-study CTA
+- [x] Add live-demo CTA
+- [x] Add GitHub CTA
+- [x] Add tech metadata
+- [x] Add project personality line
+- [x] Implement evidence/proof strip
+- [x] Ensure all evidence is factual
+- [x] Add hover/motion treatment
+- [x] Verify responsive media composition
 
 ---
 

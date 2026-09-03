@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router'
 import { HomeHero } from './components/home/HomeHero'
+import { SelectedWork } from './components/home/SelectedWork'
 import { SiteContainer } from './components/layout/SiteContainer'
 import { SiteHeader } from './components/layout/SiteHeader'
 import { Section } from './components/layout/Section'
@@ -60,6 +61,7 @@ function HomePage() {
       <SiteHeader />
       <main>
         <HomeHero />
+        <SelectedWork />
       </main>
     </div>
   )
